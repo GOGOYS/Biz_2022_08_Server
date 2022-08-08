@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+ <mapper namespace="com.callor.todo.persistance.TodoDao">
+ 
+ 	<select id="selectAll" resultType="TodoVO">
+ 		SELECT * FROM tbl_todos
+ 	</select>
+ 	
+ 	 	
+ 	<select id="findById" resultType="TodoVO">
+ 		SELECT * FROM tbl_todos
+ 		WHERE seq = #{seq}
+ 	</select>
+ 	<insert id="insert" parameterType="TodoVO">
+ 		INSERT INTO tbl_todos( 
+ 			seq,
+ 			username,
+ 			todo,
+ 			d_time,
+ 			d_date,
+ 			f_time,
+ 			f_date,
+ 			finish
+ 		)
+ 		VALUES( 
+ 			#{seq}, 
+ 			#{username},
+ 			#{todo}, 
+ 			#{d_time}, 
+ 			#{d_date}, 
+ 			#{f_time}, 
+ 			#{f_date}, 
+ 			#{finish} 
+ 		)
+ 	</insert>
+ 	<update id="update">
+ 		UPDATE tbl_todos
+ 			SET  
+ 			username = #{username},
+ 			todo = #{todo},
+ 			d_time = #{d_time},
+ 			d_date= #{d_date},
+ 			f_time = #{f_time},
+ 			f_date= #{f_date},
+ 			finish = #{finish}
+ 		WHERE seq = #{seq}
+ 	</update>
+ 	<delete id="delete"></delete>
+ 	
+ 	<select id="create_todo_table">
+		 	CREATE TABLE tbl_todos (
+				seq BIGINT PRIMARY KEY,
+				username VARCHAR(20),
+				todo  VARCHAR(400),
+				t_time VARCHAR(20),
+				d_date VARCHAR(20),
+                f_time VARCHAR(20),
+				f_date VARCHAR(20),
+				finish INT
+			);
+ 	</select> 
+ </mapper> 
