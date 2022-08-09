@@ -28,7 +28,7 @@
 		<thead>
 			<tr>	
 				<th>순서</th>
-				<th>작성자</th>
+				<th>할일</th>
 				<th>작성일</th>
 				<th>작성시간</th>
 				<th>완료일</th>

@@ -59,7 +59,7 @@
 				d_date VARCHAR(20),
                 f_time VARCHAR(20),
 				f_date VARCHAR(20),
-				finish INT
+				finish Boolean
 			);
  	</select> 
  </mapper> 
