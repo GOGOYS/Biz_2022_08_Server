@@ -1,6 +1,8 @@
 package com.callor.todo.controller;
 
 import java.security.Principal;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.stereotype.Controller;
@@ -64,6 +66,28 @@ public class TodoController {
 	@RequestMapping(value="/{seq}/update",method=RequestMethod.POST)
 	public String update(TodoVO todoVO, Model model) {
 		todoService.update(todoVO);
+		return "redirect:/todo/list";
+	}
+	
+	@RequestMapping(value="/{seq}/finish",method=RequestMethod.GET)
+	public String finish(TodoVO todoVO,String seq,Model model) {
+		
+		
+		Date curDate = new Date(System.currentTimeMillis());	
+		
+		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
+		
+		// 현재 날짜, 시각에 해당하는 문자열 생성하기
+				// SimpleDateFormat 에 의해서 패턴대로 날짜 시각 문자열을 만든다
+		String today = dateFormat.format(curDate);
+		String time = timeFormat.format(curDate);
+		todoVO.setF_date(today);
+		todoVO.setF_time(time);
+		todoVO.setFinish(true);
+		todoService.update(todoVO);
+		
+		
 		return "redirect:/todo/list";
 	}
 	

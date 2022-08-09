@@ -36,7 +36,7 @@ public class AuthenticationProviderImpl  implements AuthenticationProvider{
 		}
 		if(user.isEnabled() == false) {
 			throw new BadCredentialsException(
-					username + " 은 회원가입z절차가 완료되지 않음");
+					username + " 은 회원가입절차가 완료되지 않음");
 		}
 		
 		UsernamePasswordAuthenticationToken

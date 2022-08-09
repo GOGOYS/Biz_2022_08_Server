@@ -20,19 +20,19 @@
 		</c:choose>
 	
 		<c:if test="${not empty exception}">
-			<div class="w3-text-red w3-padding-16">${exception}</div>
+			<div>${exception}</div>
 		</c:if>
 		<c:if test="${not empty message}">
-			<div class="w3-text-red w3-padding-16">${message}</div>
+			<div>${message}</div>
 		</c:if>
 	
-		<label class="w3-text-blue"><strong>USER NAME</strong></label>
-		<input name="username" class="w3-input w3-border">
+		<label><strong>USER NAME</strong></label>
+		<input name="username">
 	
-		<label class="w3-text-blue"><strong>PASSWORD</strong></label>
-		<input name="password" class="w3-input w3-border" type="password">
+		<label><strong>PASSWORD</strong></label>
+		<input name="password"  type="password">
 		
-		<button class="w3-button w3-green">로그인</button>
+		<button>로그인</button>
 		
 	</form:form>
 </body>

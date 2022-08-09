@@ -12,6 +12,13 @@
 	.box{
 		margin: 10px 20px;
 	}
+	a{
+		text-decoration: none;
+		color: black;
+		padding:8px 20px;
+		background-color: blue;
+		border-radius: 8px;
+	}
 </style>
 </head>
 <body>	
@@ -27,6 +34,7 @@
 				<th>완료일</th>
 				<th>완료시각</th>
 				<th>완료여부</th>
+				<th>버튼</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -38,13 +46,21 @@
 						<td>${TODO.d_time}</td>
 						<td>${TODO.f_date}</td>
 						<td>${TODO.f_time}</td>
-						<td>${TODO.finish}</td>
+						<c:if test="${TODO.finish == false}">
+							<td>작성중</td>
+							<td><a href="${rootPath}/todo/${TODO.seq}/finish">완료하기</a></td>
+						</c:if>
+						<c:if test="${TODO.finish == true}">
+							<td>작성완료</td>
+						</c:if>
+						
 					</tr>
 			</c:forEach>
 		</tbody>
 	</table>
 	
 	<a href="${rootPath}/todo/input">입력하기</a>
+	<a href="${rootPath}/">홈가기</a>
 </body>
 
 <script >

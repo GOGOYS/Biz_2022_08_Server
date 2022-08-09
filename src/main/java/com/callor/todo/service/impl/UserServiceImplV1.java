@@ -53,10 +53,6 @@ public class UserServiceImplV1 implements UserService{
 		
 		if(userList == null || userList.size() < 1) {
 		
-			/*
-			 * 최초로 회원가입을 하면 Enabled 를 true
-			 * ADMIN, USER 권한을 부여한다
-			 */
 			vo.setEnabled(true);
 			authList.add(AuthorityVO.builder()
 					.username(vo.getUsername())
