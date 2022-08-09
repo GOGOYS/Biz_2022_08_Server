@@ -8,7 +8,6 @@
  	<select id="selectAll" resultType="UserVO">
  		SELECT * FROM tbl_users
  	</select>
- 	
  	<!-- 권한 정보 불러오기 -->
  	<select id="select_auths" resultType="AuthorityVO">
  		SELECT * FROM tbl_authorities WHERE username = #{uesrname}
@@ -33,6 +32,7 @@
  			enabled,
  			realname,
  			nickname,
+ 			email,
  			phone,
  			address 
  		)
@@ -42,6 +42,7 @@
  			#{enabled},
  			#{realname},
  			#{nickname},
+ 			#{email},
  			#{phone},
  			#{address} 
  		)

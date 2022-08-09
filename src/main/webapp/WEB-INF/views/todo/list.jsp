@@ -10,7 +10,6 @@
 <title>Insert title here</title>
 <style>
 	.box{
-		display: flex;
 		margin: 10px 20px;
 	}
 </style>
