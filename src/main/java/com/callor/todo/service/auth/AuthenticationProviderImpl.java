@@ -22,26 +22,21 @@ public class AuthenticationProviderImpl  implements AuthenticationProvider{
 
 	@Autowired
 	private UserDao userDao;
-	
-	@Autowired
-	@Qualifier("userDetailsService")
-	private UserDetailsService userService;
-
-	
+		
 	@Override
 	public Authentication authenticate(Authentication authentication) throws AuthenticationException {
 		
 		String username = (String) authentication.getPrincipal();
 		String password = (String) authentication.getCredentials();
 		
-		UserVO user = (UserVO) userService.loadUserByUsername(username);
+		UserVO user = userDao.findById(username);
 		
 		if(user.getPassword().equals(password) == false) {
 			throw new BadCredentialsException("비밀번호가 잘못되었습니다");
 		}
 		if(user.isEnabled() == false) {
 			throw new BadCredentialsException(
-					username + " 은 회원가입절차가 완료되지 않음");
+					username + " 은 회원가입z절차가 완료되지 않음");
 		}
 		
 		UsernamePasswordAuthenticationToken
