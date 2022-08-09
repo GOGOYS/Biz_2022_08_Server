@@ -78,8 +78,6 @@ public class TodoController {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
 		SimpleDateFormat timeFormat = new SimpleDateFormat("hh:mm:ss");
 		
-		// 현재 날짜, 시각에 해당하는 문자열 생성하기
-				// SimpleDateFormat 에 의해서 패턴대로 날짜 시각 문자열을 만든다
 		String today = dateFormat.format(curDate);
 		String time = timeFormat.format(curDate);
 		todoVO.setF_date(today);
@@ -89,7 +87,6 @@ public class TodoController {
 		
 		
 		return "redirect:/todo/list";
-	}
-	
+	}	
 
 }
