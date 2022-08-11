@@ -36,7 +36,6 @@ public class UserController {
 	public String login(String error,String exception,Model model) {
 		
 		model.addAttribute("error",error);
-		model.addAttribute("exception",exception);
 		return null;
 	}
 	
